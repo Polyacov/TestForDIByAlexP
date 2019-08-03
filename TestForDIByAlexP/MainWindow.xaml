@@ -1,0 +1,112 @@
+﻿<Window x:Class="TestForDIByAlexP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestForDIByAlexP"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"        
+        xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
+        xmlns:h="http://helix-toolkit.org/wpf"
+        Style="{StaticResource CustomWindowStyle}"
+        Title="Candidate Test for DI by Alex P"
+        Height="350" Width="525" FontSize="16" >
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+
+    <DockPanel>
+        <ItemsControl x:Name="TasksListView"
+                      DockPanel.Dock="Left" 
+                      BorderBrush="AliceBlue" 
+                      BorderThickness="0,0,2,0"
+                      ItemsSource="{Binding TasksNames}" 
+                      MinWidth="150">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:XButton Content="{Binding Path=Name}" 
+                                   Background="White"
+                                   Margin="3,3,3,0"
+                                   ViewToShow="{Binding Path=PanelView}"
+                                   Click="XButton_Click"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--<ItemsControl DockPanel.Dock="Bottom" 
+                      BorderBrush="AliceBlue" 
+                      BorderThickness="0,2,0,0"
+                      ItemsSource="{Binding TasksNames}" 
+                      MinWidth="150">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <UserControl Content="{Binding Path=PanelView}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
+
+        <Border DockPanel.Dock="Bottom"
+                BorderBrush="AliceBlue"
+                BorderThickness="0, 2, 0, 0">
+            <!--<local:Tasks3and4PanelView x:Name="TaskPanelView" 
+                                       MinHeight="50"/>-->
+            <ContentControl x:Name="TaskPanelView"
+                            MinHeight="50"/>
+        </Border>
+
+        <hx:Viewport3DX x:Name="ViewPort"
+                        BackgroundColor="White"
+                        Camera="{Binding Camera}"
+                        CameraMode="Inspect"
+                        EffectsManager="{Binding EffectsManager}"
+                        
+                        
+                        ModelUpDirection="{Binding UpDirection}">
+            <!--
+            FXAALevel="Low"
+            EnableDesignModeRendering="True"
+            -->
+            <hx:Viewport3DX.InputBindings>
+                <KeyBinding Key="B" Command="hx:ViewportCommands.BackView" />
+                <KeyBinding Key="F" Command="hx:ViewportCommands.FrontView" />
+                <KeyBinding Key="U" Command="hx:ViewportCommands.TopView" />
+                <KeyBinding Key="D" Command="hx:ViewportCommands.BottomView" />
+                <KeyBinding Key="L" Command="hx:ViewportCommands.LeftView" />
+                <KeyBinding Key="R" Command="hx:ViewportCommands.RightView" />
+                <KeyBinding Command="hx:ViewportCommands.ZoomExtents" Gesture="Control+E" />
+                <MouseBinding Command="hx:ViewportCommands.Rotate" Gesture="RightClick" />
+                <MouseBinding Command="hx:ViewportCommands.Zoom" Gesture="MiddleClick" />
+                <MouseBinding Command="hx:ViewportCommands.Pan" Gesture="LeftClick" />
+            </hx:Viewport3DX.InputBindings>
+
+            <hx:AmbientLight3D Color="{Binding AmbientLightColor}" />
+            <hx:DirectionalLight3D Direction="{Binding Camera.LookDirection}" 
+                                   Color="{Binding DirectionalLightColor}" />
+            <hx:Element3DPresenter Content="{Binding GroupModel}" />
+            <hx:LineGeometryModel3D Geometry="{Binding BBox}"/>
+
+            <!--
+                <hx:MeshGeometryModel3D
+                x:Name="model1"
+                Geometry="{Binding Model}"
+                Material="{Binding RedMaterial}"
+                Transform="{Binding Model1Transform}" />
+            -->
+            
+            <hx:LineGeometryModel3D
+                x:Name="lines"
+                Geometry="{Binding BBox}"
+                Thickness="1.5"
+                Transform="{Binding Model1Transform}"
+                Color="Black" />
+
+            <hx:LineGeometryModel3D
+                Geometry="{Binding Lines}"
+                Thickness="1.5"
+                Transform="{Binding Model1Transform}"
+                Color="Black" />
+
+        </hx:Viewport3DX>
+    </DockPanel>
+
+</Window>
