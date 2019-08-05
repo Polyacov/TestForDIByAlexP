@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestForDIByAlexP
+namespace TestForDIByAlexP.View
 {
     /// <summary>
-    /// Interaction logic for Task5PanelView.xaml
+    /// Interaction logic for OpenClearButtons.xaml
     /// </summary>
-    public partial class Task5PanelView : UserControl
+    public partial class OpenClearButtons : UserControl
     {
-        public Task5PanelView()
+        public OpenClearButtons()
         {
             InitializeComponent();
         }

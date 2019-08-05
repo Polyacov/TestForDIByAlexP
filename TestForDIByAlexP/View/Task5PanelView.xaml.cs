@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestForDIByAlexP
+namespace TestForDIByAlexP.View
 {
     /// <summary>
-    /// Interaction logic for Tasks3and4PanelView.xaml
+    /// Interaction logic for Task5PanelView.xaml
     /// </summary>
-    public partial class Tasks3and4PanelView : UserControl
+    public partial class Task5PanelView : UserControl
     {
-        public Tasks3and4PanelView()
+        public Task5PanelView()
         {
             InitializeComponent();
         }

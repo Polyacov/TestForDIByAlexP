@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace TestForDIByAlexP
+namespace TestForDIByAlexP.Styles
 {
     public partial class WindowStyle : ResourceDictionary
     {

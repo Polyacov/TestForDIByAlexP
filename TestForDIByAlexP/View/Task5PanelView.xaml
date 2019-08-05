@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="TestForDIByAlexP.View.Task5PanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestForDIByAlexP.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal" 
+                HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal"
+                    Margin="5, 0, 0, 0">
+            <local:OpenClearButtons/>
+        </StackPanel>
+        <Grid Margin="5, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Content="min z" 
+                   HorizontalAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+            <Slider Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="minSlider"
+                    Maximum="-5"
+                    Minimum="-25"
+                    Value="{Binding MinZRotation}"
+                    Width="150" 
+                    IsDirectionReversed="True"
+                    Margin="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Content="max z"
+                   HorizontalAlignment="Center"
+                   VerticalContentAlignment="Center" />
+            <Slider Grid.Row="1"
+                    Grid.Column="1" 
+                    x:Name="maxSlider" 
+                    Maximum="25"
+                    Minimum="5"
+                    Value="{Binding MaxZRotation}"
+                    Width="150"
+                    Margin="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+        </Grid>
+        <Button Content="Start" 
+                Style="{StaticResource CustomButtonStyle}"
+                Command="{Binding StartAnimationCommand}"/>
+        <Button Content="Stop" 
+                Style="{StaticResource CustomButtonStyle}"
+                Command="{Binding StopAnimationCommand}"/>
+    </StackPanel>
+</UserControl>

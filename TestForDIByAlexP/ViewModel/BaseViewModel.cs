@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace TestForDIByAlexP
+namespace TestForDIByAlexP.ViewModel
 {
     using System;
     using System.Collections.Generic;

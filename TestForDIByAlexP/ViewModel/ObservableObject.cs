@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace TestForDIByAlexP
+namespace TestForDIByAlexP.ViewModel
 {
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -15,10 +15,7 @@ namespace TestForDIByAlexP
 
         protected void OnPropertyChanged([CallerMemberName]string info = "")
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(info));
         }
 
         protected bool SetValue<T>(ref T backingField, T value, [CallerMemberName]string propertyName = "")
