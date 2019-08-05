@@ -1,32 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Shell;
-using HelixToolkit;
-using HelixToolkit.Wpf;
-using HelixToolkit.Wpf.SharpDX;
-using HelixToolkit.Wpf.SharpDX.Assimp;
-using Microsoft.Win32;
 using TestForDIByAlexP.ViewModel;
 
 namespace TestForDIByAlexP.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         UserControl _exercize3View = new Task3PanelView();
@@ -39,8 +20,6 @@ namespace TestForDIByAlexP.View
             set { SetValue(CurrentExerciseProperty, value); }
         }
 
-
-        // Using a DependencyProperty as the backing store for CurrentExercize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CurrentExerciseProperty =
             DependencyProperty.Register(nameof(CurrentExercise), typeof(string), typeof(MainWindow),
                 new PropertyMetadata("", new PropertyChangedCallback(CurrentExerciseChanged)));

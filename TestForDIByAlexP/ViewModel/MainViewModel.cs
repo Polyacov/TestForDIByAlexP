@@ -1,11 +1,6 @@
 ﻿using HelixToolkit.Wpf.SharpDX;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Media3D = System.Windows.Media.Media3D;
 using Vector3D = System.Windows.Media.Media3D.Vector3D;
@@ -16,13 +11,8 @@ using System.Windows.Media;
 using System.Windows.Input;
 using Microsoft.Win32;
 using HelixToolkit.Wpf.SharpDX.Assimp;
-using HelixToolkit.Wpf.SharpDX.Animations;
 using HelixToolkit.Wpf.SharpDX.Model.Scene;
-using HelixToolkit.Wpf.SharpDX.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Threading;
-using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 namespace TestForDIByAlexP.ViewModel
@@ -41,7 +31,6 @@ namespace TestForDIByAlexP.ViewModel
             }
             get => _isActive;
         }
-
     }
 
     class MainViewModel : BaseViewModel
@@ -283,8 +272,6 @@ namespace TestForDIByAlexP.ViewModel
 
                         var bb = LineBuilder.GenerateBoundingBox(n.Geometry);
                         _bBoxesList.Add(bb);
-                        Console.WriteLine(n);
-                        n.Geometry.Positions.ForEach((p) => Console.WriteLine(p));
                     }
 
                     BuildBigBBox(_bBoxesList);
